@@ -66,7 +66,7 @@ exports.update = (req, res) => {
     const id = req.params.id;
 
     Alquiler.update(req.body, {
-        where: { id: id }
+        where: { id_alquiler: id }
     })
         .then(num => {
             if (num == 1) {
@@ -89,7 +89,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
     Alquiler.destroy({
-        where: { id: id }
+        where: { id_alquiler: id }
     })
         .then(num => {
             if (num == 1) {

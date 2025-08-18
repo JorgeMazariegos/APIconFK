@@ -63,7 +63,7 @@ exports.update = (req, res) => {
     const id = req.params.id;
 
     Cliente.update(req.body, {
-        where: { id: id }
+        where: { id_cliente: id }
     })
         .then(num => {
             if (num == 1) {
@@ -86,7 +86,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
     Cliente.destroy({
-        where: { id: id }
+        where: { id_cliente: id }
     })
         .then(num => {
             if (num == 1) {
