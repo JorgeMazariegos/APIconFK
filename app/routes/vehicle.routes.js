@@ -4,6 +4,7 @@ module.exports = app => {
     router.post("/create/", vehiculos.create);
     router.get("/", vehiculos.findAll);
     router.get("/:id", vehiculos.findOne);
+    router.get("/:marca", vehiculos.findAllByMarca);
     router.put("/update/:id", vehiculos.update);
     router.delete("/delete/:id", vehiculos.delete);
     app.use("/api/vehiculo", router);

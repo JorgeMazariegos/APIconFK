@@ -31,6 +31,21 @@ exports.create = (req, res) => {
         });
 };
 
+exports.findAllByMarca = (req, res) => {
+    const marca = req.params.marca;
+
+    Vehiculo.findAll({where: {marca : marca}})
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving vehicles."
+            });
+        });
+}
+
 exports.findAll = (req, res) => {
     const marca = req.query.marca;
     var condition = marca ? { marca: { [Op.iLike]: `%${marca}%` } } : null;
